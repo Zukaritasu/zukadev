@@ -1,0 +1,51 @@
+.home-page {
+	color: white;
+	max-width: 800px;
+	margin-top: 2rem;
+}
+
+.home-page>.introduction-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	font-size: 18px;
+	color: aliceblue;
+	line-height: 1.6;
+
+	background-color: #292929;
+	border-radius: 8px;
+}
+
+.home-page>.introduction-section li {
+	text-align: justify;
+	hyphens: none;
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	word-break: normal;
+	overflow-wrap: normal;
+}
+
+.home-page a {
+	color: #74dffd;
+	text-decoration: none;
+}
+
+.home-page>.technologies-used {
+	margin-top: 2rem;
+}
+
+.home-page .technologies-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.home-page .technologies-list>span {
+	background-color: #292929;
+	border-radius: 8px;
+	padding: 1rem;
+}

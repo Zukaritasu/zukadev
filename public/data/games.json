@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Genshin Impact",
+    "url": "https://genshin.hoyoverse.com/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/coa9dy.webp",
+    "description": "Un RPG de acción de mundo abierto con un sistema de combate elemental y una historia épica en el mundo de Teyvat."
+  },
+  {
+    "name": "Geometry Dash",
+    "url": "https://www.robtopgames.com/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/co7jou.webp",
+    "description": "Un frenético juego de plataformas rítmico donde saltas y vuelas al ritmo de la música para evitar obstáculos imposibles."
+  },
+  {
+    "name": "Honkai Star Rail",
+    "url": "https://hsr.hoyoverse.com/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/coasur.webp",
+    "description": "Aventura espacial de estrategia por turnos donde viajas a bordo del Expreso Astral para descubrir los secretos de los Aeons."
+  },
+  {
+    "name": "Terraria",
+    "url": "https://terraria.org/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/coaamg.webp",
+    "description": "Un mundo de aventuras en 2D donde puedes cavar, luchar, construir y explorar un universo lleno de jefes y tesoros."
+  },
+  {
+    "name": "Blue Archive",
+    "url": "https://bluearchive.nexon.com/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/coaat2.webp",
+    "description": "Un RPG táctico donde asumes el rol de Sensei para guiar a estudiantes armadas en la resolución de incidentes en Kivotos."
+  },
+  {
+    "name": "Wuthering Waves",
+    "url": "https://wutheringwaves.kurogames.com/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/cob4qg.webp",
+    "description": "RPG de acción de mundo abierto con un combate fluido y técnico ambientado en un mundo post-apocalíptico renacido."
+  },
+  {
+    "name": "Stella Sora",
+    "url": "https://stellasora.global/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/cob377.webp",
+    "description": "Juego de rol y acción táctica de Yostar donde exploras laberintos misteriosos junto a carismáticas compañeras."
+  },
+  {
+    "name": "Minecraft",
+    "url": "https://www.minecraft.net/",
+    "image": "https://images.igdb.com/igdb/image/upload/t_720p/co8fu7.webp",
+    "description": "El juego de construcción tipo 'sandbox' definitivo donde tu creatividad es el único límite para sobrevivir y crear."
+  },
+  {
+	"name": "Kingdom Rush",
+	"url": "https://www.kingdomrush.com/",
+	"image": "https://images.igdb.com/igdb/image/upload/t_720p/co1sgu.webp",
+	"description": "Un juego de defensa de torres con héroes épicos, torres mejorables y hordas de enemigos en un mundo de fantasía."
+  },
+  {
+	"name": "Monster Legends",
+	"url": "https://www.monsterlegendsgame.com/",
+	"image": "https://images.igdb.com/igdb/image/upload/t_720p/co2ssg.webp",
+	"description": "Un juego de estrategia y crianza de monstruos donde coleccionas, entrenas y luchas con criaturas únicas."
+  }
+]

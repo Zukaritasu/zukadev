@@ -1,0 +1,50 @@
+body,
+html,
+#root {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 700;
+	letter-spacing: -0.022em;
+}
+
+
+/* ancho */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+/* fondo */
+::-webkit-scrollbar-track {
+	background-color: #000;
+	border-radius: 6px;
+}
+
+/* barra */
+::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #666;
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #000;
+}

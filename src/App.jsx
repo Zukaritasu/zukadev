@@ -1,0 +1,50 @@
+import { } from 'react'
+import { Box } from '@mui/material'
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Home from './Home'
+import Proyects from './Proyects'
+import Animes from './Animes'
+import Games from './Games'
+
+import './App.css'
+
+function App() {
+	const navigate = useNavigate();
+	
+	return (
+		<Box className="app-container">
+			<Box className="banner"
+				sx={{
+					backgroundImage: 'url(/banner.jpg)',
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+				}}
+			>
+			</Box>
+			<Box className="navigation-bar">
+				<button onClick={() => navigate('/')}>Home</button>
+				<button onClick={() => navigate('/proyects')}>GitHub Proyects</button>
+				<button onClick={() => navigate('/animes')}>Animes</button>
+				<button onClick={() => navigate('/games')}>Games</button>
+			</Box>
+
+			<Box className="content-area">
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/proyects" element={<Proyects />} />
+					<Route path="/animes" element={<Animes />} />
+					<Route path="/games" element={<Games />} />
+					<Route path="*" element={<Navigate to="/" replace />} />
+				</Routes>
+			</Box>
+
+			<Box className="footer">
+				&copy; 2026 zukadev. All rights reserved.
+			</Box>
+		</Box>
+	)
+}
+
+export default App
