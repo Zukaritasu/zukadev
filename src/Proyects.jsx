@@ -37,7 +37,7 @@ function Proyects() {
 						alignItems: 'stretch',
 					}}
 				>
-					{repos.map((repo) => (
+					{repos.map((repo) => repo.description && repo.name !== 'zukaritasu' && (
 						<Box
 							key={repo.id}
 							component="article"
@@ -62,7 +62,6 @@ function Proyects() {
 								sx={{
 									flex: 1,
 									fontSize: '0.95rem',
-									/* overflow: 'hidden', */
 									textOverflow: 'ellipsis',
 									color: '#bebebe',
 								}}

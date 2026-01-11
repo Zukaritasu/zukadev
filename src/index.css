@@ -5,6 +5,10 @@ html,
 	padding: 0;
 	height: 100%;
 	width: 100%;
+	--zukadev-background-color: #000;
+	--zukadev-foreground-color: #fff;
+	--zukadev-navigation-bar-color: #141414;
+	--zukadev-footer-color: #1a1a1a;
 }
 
 body {

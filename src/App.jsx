@@ -8,6 +8,7 @@ import Animes from './Animes'
 import Games from './Games'
 
 import './App.css'
+import Header from './Header';
 
 function App() {
 	const navigate = useNavigate();
@@ -20,8 +21,10 @@ function App() {
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
+					boxShadow: 'inset 0 0 100px 50px rgba(0, 0, 0, 0.9)'
 				}}
 			>
+				<Header />
 			</Box>
 			<Box className="navigation-bar">
 				<button onClick={() => navigate('/')}>Home</button>

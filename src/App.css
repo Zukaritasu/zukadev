@@ -1,10 +1,12 @@
 .app-container {
 	height: 100vh;
-	background-color: #181818;
+	width: 100vw;
+	background-color: var(--zukadev-background-color);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	overflow-y: auto;
+	box-sizing: border-box;
 }
 
 .banner {
@@ -13,46 +15,6 @@
 	min-height: 30%;
 }
 
-/* .banner {
-	width: 100%;
-	min-height: 30%;
-	background: #0f172a;
-	border-radius: 12px;
-	box-shadow:
-		0 2px 0 rgba(255, 255, 255, 0.03) inset,
-		0 6px 12px rgba(2, 6, 23, 0.6),
-		0 18px 40px rgba(2, 6, 23, 0.45);
-	transform: translateZ(0);
-} */
-
-/* .banner {
-	width: 100%;
-	min-height: 30%;
-	background: linear-gradient(135deg, #0b1226 0%, #071237 100%);
-	color: #e6f0ff;
-	border-radius: 10px;
-	position: relative;
-	box-shadow: 0 0 20px rgba(66, 153, 225, 0.18), 0 8px 40px rgba(2, 6, 23, 0.6);
-	transition: box-shadow .35s ease;
-}
-
-.banner:hover {
-	box-shadow: 0 0 40px rgba(66, 153, 225, 0.45), 0 18px 60px rgba(2, 6, 23, 0.7);
-} */
-
-/* .banner {
-	width: 100%;
-	min-height: 30%;
-	background: #fff;
-	color: #0b1226;
-	border-radius: 14px;
-	box-shadow:
-		0 6px 18px rgba(11, 18, 38, 0.08),
-		0 2px 6px rgba(11, 18, 38, 0.04);
-}
- */
-
-
 .navigation-bar {
 	display: flex;
 	justify-content: center;
@@ -60,7 +22,7 @@
 	width: 100%;
 	min-height: 3rem;
 	gap: 2rem;
-	background-color: #222222;
+	background-color: var(--zukadev-navigation-bar-color);
 }
 
 .navigation-bar button {
@@ -74,7 +36,7 @@
 }
 
 .footer {
-	background-color: #272727;
+	background-color: var(--zukadev-footer-color);
 	width: 100%;
 	min-height: 5rem;
 	margin-top: auto;
@@ -92,7 +54,6 @@
 	justify-content: center;
 }
 
-/* ---------- Sombra inset (desde el borde hacia adentro) ---------- */
 .banner-inset {
 	width: 100%;
 	min-height: 30%;
@@ -102,10 +63,9 @@
 	position: relative;
 	overflow: hidden;
 	padding: 2rem;
-	box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6); /* sombra suave desde bordes hacia el interior */
+	box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6); 
 }
 
-/* Variante con varias capas inset para sensación más profunda */
 .banner-inset-deep {
 	width: 100%;
 	min-height: 30%;
@@ -119,7 +79,6 @@
 		inset 0 -10px 30px rgba(0,0,0,0.45);
 }
 
-/* Variante usando pseudo-elemento con degradado interno (vignette hacia dentro) */
 .banner-inset-vignette {
 	width: 100%;
 	min-height: 30%;
@@ -137,13 +96,11 @@
 	inset: 0;
 	border-radius: inherit;
 	z-index: -1;
-	/* degradado que es transparente en el centro y más oscuro en los bordes */
 	background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.32) 100%);
 	transform: scale(1.02);
 	pointer-events: none;
 }
 
-/* Ejemplo de animación al pasar el ratón que intensifica la sombra interna */
 .banner-inset-animated {
 	border-radius: 12px;
 	padding: 2rem;

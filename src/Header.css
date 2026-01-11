@@ -1,0 +1,21 @@
+.header-container {
+	width: 100%;
+	padding: 1rem;
+	min-height: 2.5rem;
+	background-color: #000000b4;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	box-sizing: border-box;
+}
+
+.header-container .social-links {
+	display: flex;
+	gap: 1rem;
+}
+
+.header-container .social-links > a {
+	color: #c7c7c7;
+	text-decoration: none;
+}
