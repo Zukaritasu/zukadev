@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Home from './Home'
-import Proyects from './Proyects'
+import Projects from './Projects'
 import Animes from './Animes'
 import Games from './Games'
 
@@ -28,7 +28,7 @@ function App() {
 			</Box>
 			<Box className="navigation-bar">
 				<button onClick={() => navigate('/')}>Home</button>
-				<button onClick={() => navigate('/proyects')}>GitHub Proyects</button>
+				<button onClick={() => navigate('/proyects')}>GitHub Projects</button>
 				<button onClick={() => navigate('/animes')}>Animes</button>
 				<button onClick={() => navigate('/games')}>Games</button>
 			</Box>
@@ -36,7 +36,7 @@ function App() {
 			<Box className="content-area">
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/proyects" element={<Proyects />} />
+					<Route path="/proyects" element={<Projects />} />
 					<Route path="/animes" element={<Animes />} />
 					<Route path="/games" element={<Games />} />
 					<Route path="*" element={<Navigate to="/" replace />} />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Typography, Link, CircularProgress } from '@mui/material'
 
-function Proyects() {
+function Projects() {
 	const [repos, setRepos] = useState([])
 	const [loading, setLoading] = useState(true)
 
@@ -42,14 +42,13 @@ function Proyects() {
 							key={repo.id}
 							component="article"
 							sx={{
-								border: '1px solid rgba(0,0,0,0.12)',
 								borderRadius: '8px',
 								p: 2,
 								bgcolor: '#292929',
 								display: 'flex',
 								flexDirection: 'column',
 								gap: 1,
-								aspectRatio: '1 / 1.2',
+								aspectRatio: '1 / auto',
 								overflow: 'hidden',
 							}}
 						>
@@ -71,7 +70,9 @@ function Proyects() {
 
 							<Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
 								<Typography variant="caption">{repo.language || ''}</Typography>
-								<Typography variant="caption">★ {repo.stargazers_count || 0}</Typography>
+								<Typography variant="caption">
+									<span style={{ color: '#ffd700' }}>★</span> {repo.stargazers_count || 0}
+								</Typography>
 							</Box>
 
 							<Link href={repo.html_url} target="_blank" rel="noopener noreferrer"
@@ -89,4 +90,4 @@ function Proyects() {
 	)
 }
 
-export default Proyects
+export default Projects

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Typography, Link, CircularProgress } from '@mui/material'
+import { Box, Typography, Link, CircularProgress, TextField, Select, MenuItem, Divider } from '@mui/material'
 
 import './Animes.css'
 
@@ -58,7 +58,7 @@ function groupLists(collection) {
 			const media = entry.media
 
 			if (entry.status === 'CURRENT')
-				 groups.watching.push(entry)
+				groups.watching.push(entry)
 			else if (entry.status === 'COMPLETED') {
 				if (media.format === 'TV' || media.format === 'TV_SHORT') {
 					groups.completed.push(entry)
@@ -78,14 +78,19 @@ function sortByScoreDesc(entries) {
 	return entries.slice().sort((a, b) => (b.score || 0) - (a.score || 0))
 }
 
-function PanelGrid({ items }) {
+function PanelGrid({ items, nameFilter }) {
 	if (!items || items.length === 0) return <Typography>Sin elementos</Typography>
 
 	return (
 		<Box className="panel-grid">
 			{items.map((entry) => {
 				const media = entry.media
-				const title = media.title.english || media.title.romaji || media.title.native
+				const title = media.title.romaji || media.title.english || media.title.native
+
+				if (nameFilter && !title.toLowerCase().includes(nameFilter.toLowerCase())) {
+					return null
+				}
+
 				return (
 					<Box
 						className="anime-card"
@@ -98,14 +103,14 @@ function PanelGrid({ items }) {
 					>
 						<Box className="anime-info">
 							<p className='anime-title'>{title}</p>
-							{ entry.status === 'COMPLETED' && (
+							{entry.status === 'COMPLETED' && (
 								<p>{entry.score || 0}</p>
 							)}
 						</Box>
 						<Link href={media.siteUrl} target="_blank" rel="noopener noreferrer" sx={{ position: 'absolute', inset: 0 }} aria-hidden />
 					</Box>
 				)
-			})}
+			}).filter(Boolean)}
 		</Box>
 	)
 }
@@ -114,7 +119,9 @@ function Animes() {
 	const [lists, setLists] = useState(null)
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(null)
- 	const [favorites, setFavorites] = useState([])
+	const [favorites, setFavorites] = useState([])
+	const [groud, setGroud] = useState('all')
+	const [nameFilter, setNameFilter] = useState('')
 
 	// Fetch data from AniList API
 	useEffect(() => {
@@ -159,31 +166,111 @@ function Animes() {
 					gap: 4,
 					color: '#b1b1b1',
 				}}>
-					{favorites && favorites.length > 0 && (
+					{/* Filter controls */}
+					<Box>
+						<Typography variant="h5" mb={1}>Filter</Typography>
+						<p/>
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: 'row',
+								gap: 2,
+							}}
+						>
+							<Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
+								<span>Groud</span>
+								<Select
+									value={groud}
+									onChange={(e) => setGroud(e.target.value)}
+									sx={{
+										height: '2rem',
+										minWidth: 120,
+										backgroundColor: '#1e1e1e',
+										color: '#e0e0e0',
+										borderRadius: '6px',
+										'& .MuiSelect-select': { padding: '4px 10px', display: 'flex', alignItems: 'center' },
+										'& .MuiOutlinedInput-notchedOutline': { borderColor: '#333' },
+									}}
+
+
+									MenuProps={{
+										sx: {
+											'& .MuiPaper-root': {
+												backgroundColor: '#1e1e1e',
+												color: '#e0e0e0',
+											},
+										},
+									}}
+								>
+									<MenuItem value="all">All</MenuItem>
+									<MenuItem value="favorites">Favorites</MenuItem>
+									<MenuItem value="watching">Watching</MenuItem>
+									<MenuItem value="completed">Completed</MenuItem>
+									<MenuItem value="onas">ONAs</MenuItem>
+									<MenuItem value="movies">Movies</MenuItem>
+								</Select>
+							</Box>
+							<Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
+								<span>Name</span>
+								<TextField
+									type="text"
+									placeholder="Search..."
+									value={nameFilter}
+									onChange={(e) => setNameFilter(e.target.value)}
+									sx={{
+										'& .MuiOutlinedInput-root': {
+											height: '2rem',
+											backgroundColor: '#1e1e1e',
+											color: '#e0e0e0',
+											borderRadius: '6px',
+										},
+										'& .MuiOutlinedInput-input': { padding: '4px 10px', height: 'auto' },
+										'& .MuiOutlinedInput-notchedOutline': { borderColor: '#333' },
+									}}
+								/>
+							</Box>
+						</Box>
+						<Divider sx={{
+							bgcolor: '#333',
+							mt: 2,
+							mb: 2,
+						}} />
+					</Box>
+
+					{/* end - Filter controls */}
+					{favorites && favorites.length > 0 && (groud === 'favorites' || groud === 'all') && (
 						<Box>
 							<Typography variant="h5" mb={1}>Favorites</Typography>
-							<PanelGrid items={favorites.map(node => ({ id: node.id, media: node }))} />
+							<PanelGrid items={favorites.map(node => ({ id: node.id, media: node }))} nameFilter={nameFilter} />
 						</Box>
 					)}
-					<Box>
-						<Typography variant="h5" mb={1}>Watching</Typography>
-						<PanelGrid items={sortByScoreDesc(groups.watching)} />
-					</Box>
+					{(groud === 'watching' || groud === 'all') && (
+						<Box>
+							<Typography variant="h5" mb={1}>Watching</Typography>
+							<PanelGrid items={sortByScoreDesc(groups.watching)} nameFilter={nameFilter} />
+						</Box>
+					)}
 
-					<Box>
-						<Typography variant="h5" mb={1}>Completed</Typography>
-						<PanelGrid items={sortByScoreDesc(groups.completed)} />
-					</Box>
+					{(groud === 'completed' || groud === 'all') && (
+						<Box>
+							<Typography variant="h5" mb={1}>Completed</Typography>
+							<PanelGrid items={sortByScoreDesc(groups.completed)} nameFilter={nameFilter} />
+						</Box>
+					)}
 
-					<Box>
-						<Typography variant="h5" mb={1}>ONAs</Typography>
-						<PanelGrid items={sortByScoreDesc(groups.ona)} />
-					</Box>
+					{(groud === 'onas' || groud === 'all') && (
+						<Box>
+							<Typography variant="h5" mb={1}>ONAs</Typography>
+							<PanelGrid items={sortByScoreDesc(groups.ona)} nameFilter={nameFilter} />
+						</Box>
+					)}
 
-					<Box>
-						<Typography variant="h5" mb={1}>Movies</Typography>
-						<PanelGrid items={sortByScoreDesc(groups.movies)} />
-					</Box>
+					{(groud === 'movies' || groud === 'all') && (
+						<Box>
+							<Typography variant="h5" mb={1}>Movies</Typography>
+							<PanelGrid items={sortByScoreDesc(groups.movies)} nameFilter={nameFilter} />
+						</Box>
+					)}
 				</Box>
 			)}
 		</Box>
